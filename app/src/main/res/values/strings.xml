@@ -17,4 +17,5 @@
     <string name="divide">/</string>
     <string name="double_zero">00</string>
     <string name="result">=</string>
+    <string name="clear">AC</string>
 </resources>
