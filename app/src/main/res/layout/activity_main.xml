@@ -217,7 +217,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:onClick="onOperationClick"
+            android:onClick="onDivideClick"
             android:text="@string/divide"
             android:textSize="@dimen/button_text" />
     </LinearLayout>

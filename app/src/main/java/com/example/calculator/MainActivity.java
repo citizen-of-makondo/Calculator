@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onPlusClick(View view) {
         Double count = Double.valueOf(calculationTextView.getText().toString());
-        result += count;
+        result = count;
         lastOperation = "+";
         bufferTextView.setText(calculationTextView.getText().toString() + " + ");
         calculationTextView.setText("");
@@ -124,19 +124,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMinusClick(View view) {
         Double count = Double.valueOf(calculationTextView.getText().toString());
-        result -= count;
+        result = count;
         lastOperation = "-";
         bufferTextView.setText(calculationTextView.getText().toString() + " - ");
         calculationTextView.setText("");
     }
 
-    /*public void onMiltiClick(View view) {
+    public void onMiltiClick(View view) {
         Double count = Double.valueOf(calculationTextView.getText().toString());
-        result *= count;
+        result = 1.0;
+        result = count;
+
         lastOperation = "*";
         bufferTextView.setText(calculationTextView.getText().toString() + " * ");
         calculationTextView.setText("");
-    }*/
+    }
+
+    public void onDivideClick(View view) {
+        Double count = Double.valueOf(calculationTextView.getText().toString());
+        result = 1.0;
+        result *= count;
+        lastOperation = "/";
+        bufferTextView.setText(calculationTextView.getText().toString() + " / ");
+        calculationTextView.setText("");
+    }
 
     private void editText(String count) {
         String s = String.valueOf(calculationTextView.getText());
@@ -153,10 +164,14 @@ public class MainActivity extends AppCompatActivity {
                 result -= Double.valueOf(calculationTextView.getText().toString());
                 break;
             case "*":
-                result *=  Double.valueOf(calculationTextView.getText().toString());
+                result *= Double.valueOf(calculationTextView.getText().toString());
                 break;
             case "/":
-                result /= Double.valueOf(calculationTextView.getText().toString());
+                try {
+                    result /= Double.valueOf(calculationTextView.getText().toString());
+                } catch (Exception e) {
+                    calculationTextView.setText("На нуль делить нельзя");
+                }
                 break;
         }
         calculationTextView.setText(Double.toString(result));
