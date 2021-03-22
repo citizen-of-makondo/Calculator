@@ -1,13 +1,12 @@
 package com.example.calculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button button_00;
@@ -21,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button_7;
     private Button button_8;
     private Button button_9;
+    private Button button_point;
     private Button button_plus;
     private Button button_minus;
     private Button button_multiplication;
@@ -31,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView calculationTextView;
     private TextView bufferTextView;
 
-    private ArrayList<Double> counts = new ArrayList<>();
-    private boolean isNextCount = false;
     private Double result = 0.0;
     private String lastOperation;
+    private String count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         button_7 = findViewById(R.id.button_7);
         button_8 = findViewById(R.id.button_8);
         button_9 = findViewById(R.id.button_9);
+        button_point = findViewById(R.id.button_point);
         button_plus = findViewById(R.id.button_plus);
         button_minus = findViewById(R.id.button_minus);
         button_multiplication = findViewById(R.id.button_multiplication);
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         calculationTextView.setText("");
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void action_button(View view) {
         switch (view.getId()) {
             case R.id.button_00:
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 editText("9");
                 break;
             case R.id.button_point:
-                editText(".");
+                editText(",");
             default:
                 throw new IllegalStateException("Unexpected value: " + getComponentName().toString());
         }
@@ -169,18 +170,13 @@ public class MainActivity extends AppCompatActivity {
             case "/":
                 try {
                     result /= Double.valueOf(calculationTextView.getText().toString());
-                } catch (Exception e) {
+                } catch (ArithmeticException e) {
                     calculationTextView.setText("На нуль делить нельзя");
                 }
                 break;
         }
         calculationTextView.setText(Double.toString(result));
-        isNextCount = false;
-        counts.clear();
-
         bufferTextView.setText("");
         result = 0.0;
     }
-
-
 }
