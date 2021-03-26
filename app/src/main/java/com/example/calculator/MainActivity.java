@@ -179,4 +179,9 @@ public class MainActivity extends AppCompatActivity {
         bufferTextView.setText("");
         result = 0.0;
     }
+
+    public void onDeleteOneCount(View view) {
+        String text = calculationTextView.getText().toString();
+        calculationTextView.setText(text.substring(0, text.length() - 1));
+    }
 }
