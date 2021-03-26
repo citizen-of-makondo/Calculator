@@ -1,6 +1,5 @@
 package com.example.calculator;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -72,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         calculationTextView.setText("");
     }
 
-    @SuppressLint("NonConstantResourceId")
     public void action_button(View view) {
         switch (view.getId()) {
             case R.id.button_00:
@@ -109,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 editText("9");
                 break;
             case R.id.button_point:
-                editText(",");
+                editText(".");
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + getComponentName().toString());
         }
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void editText(String count) {
-        String s = String.valueOf(calculationTextView.getText());
+        String s = calculationTextView.getText().toString();
         s += count;
         calculationTextView.setText(s);
     }
@@ -188,6 +187,12 @@ public class MainActivity extends AppCompatActivity {
     public void onChangePlusOrMinus(View view) {
         double count = Double.valueOf(calculationTextView.getText().toString());
         count = count * (-1);
+        calculationTextView.setText(String.valueOf(count));
+    }
+
+    public void onPercent(View view) {
+        double count = Double.valueOf(calculationTextView.getText().toString());
+        count = count / 100;
         calculationTextView.setText(String.valueOf(count));
     }
 }

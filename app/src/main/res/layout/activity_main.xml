@@ -189,6 +189,7 @@
             android:id="@+id/button_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onPercent"
             android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
             android:text="@string/percent"
             android:textSize="@dimen/button_text" />
