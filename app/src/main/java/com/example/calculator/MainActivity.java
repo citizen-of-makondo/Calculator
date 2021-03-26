@@ -184,4 +184,10 @@ public class MainActivity extends AppCompatActivity {
         String text = calculationTextView.getText().toString();
         calculationTextView.setText(text.substring(0, text.length() - 1));
     }
+
+    public void onChangePlusOrMinus(View view) {
+        double count = Double.valueOf(calculationTextView.getText().toString());
+        count = count * (-1);
+        calculationTextView.setText(String.valueOf(count));
+    }
 }
