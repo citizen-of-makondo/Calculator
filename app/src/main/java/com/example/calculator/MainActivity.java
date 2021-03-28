@@ -5,9 +5,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class MainActivity extends AppCompatActivity implements Serializable {
     private Button button_00;
     private Button button_0;
     private Button button_1;
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Double result = 0.0;
     private String lastOperation;
-    private String count;
+
+    private final static String calculationText = "text";
+    private final static String bufferText = "text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,20 @@ public class MainActivity extends AppCompatActivity {
         initViews();
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(calculationText, calculationTextView.toString());
+        outState.putSerializable(bufferText, bufferTextView.toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
+
     private void initViews() {
-        button_00 = findViewById(R.id.button_00);
         button_0 = findViewById(R.id.button_0);
         button_1 = findViewById(R.id.button_1);
         button_2 = findViewById(R.id.button_2);
@@ -73,9 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void action_button(View view) {
         switch (view.getId()) {
-            case R.id.button_00:
-                editText("00");
-                break;
             case R.id.button_0:
                 editText("0");
                 break;
@@ -116,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onPlusClick(View view) {
         Double count = Double.valueOf(calculationTextView.getText().toString());
-        result = count;
+        result += count;
         lastOperation = "+";
         bufferTextView.setText(calculationTextView.getText().toString() + " + ");
         calculationTextView.setText("");
