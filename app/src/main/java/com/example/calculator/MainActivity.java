@@ -195,7 +195,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     public void onDeleteOneCount(View view) {
         String text = calculationTextView.getText().toString();
-        calculationTextView.setText(text.substring(0, text.length() - 1));
+        if (text.equals("")) {
+            calculationTextView.setText("");
+        } else {
+            calculationTextView.setText(text.substring(0, text.length() - 1));
+        }
     }
 
     public void onChangePlusOrMinus(View view) {
