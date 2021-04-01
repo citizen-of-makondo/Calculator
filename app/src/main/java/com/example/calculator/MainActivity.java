@@ -132,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         double count = Double.parseDouble(calculationTextView.getText().toString());
         result += count;
         lastOperation = "+";
-        bufferTextView.setText(calculationTextView.getText().toString() + " + ");
+        String strResult = calculationTextView.getText().toString();
+        bufferTextView.setText(getResources().getString(R.string.result_template, strResult, " + "));
         calculationTextView.setText("");
     }
 
@@ -140,7 +141,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         double count = Double.parseDouble(calculationTextView.getText().toString());
         result = count;
         lastOperation = "-";
-        bufferTextView.setText(calculationTextView.getText().toString() + " - ");
+        String strResult = calculationTextView.getText().toString();
+        bufferTextView.setText(getResources().getString(R.string.result_template, strResult, " - "));
         calculationTextView.setText("");
     }
 
@@ -150,7 +152,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         result = count;
 
         lastOperation = "*";
-        bufferTextView.setText(calculationTextView.getText().toString() + " * ");
+        String strResult = calculationTextView.getText().toString();
+        bufferTextView.setText(getResources().getString(R.string.result_template, strResult, " * "));
         calculationTextView.setText("");
     }
 
@@ -159,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         result = 1.0;
         result *= count;
         lastOperation = "/";
-        bufferTextView.setText(calculationTextView.getText().toString() + " / ");
+        String strResult = calculationTextView.getText().toString();
+        bufferTextView.setText(getResources().getString(R.string.result_template, strResult, " / "));
         calculationTextView.setText("");
     }
 

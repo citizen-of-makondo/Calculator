@@ -21,4 +21,6 @@
     <string name="percent">%</string>
     <string name="delete_one"><![CDATA[<-]]></string>
     <string name="plus_minus">±</string>
+
+    <string name="result_template">%s%s</string>
 </resources>
