@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void onPlusClick(View view) {
-        Double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         result += count;
         lastOperation = "+";
         bufferTextView.setText(calculationTextView.getText().toString() + " + ");
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void onMinusClick(View view) {
-        Double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         result = count;
         lastOperation = "-";
         bufferTextView.setText(calculationTextView.getText().toString() + " - ");
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void onMiltiClick(View view) {
-        Double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         result = 1.0;
         result = count;
 
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void onDivideClick(View view) {
-        Double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         result = 1.0;
         result *= count;
         lastOperation = "/";
@@ -172,17 +172,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public void showResult(View view) {
         switch (lastOperation) {
             case "+":
-                result += Double.valueOf(calculationTextView.getText().toString());
+                result += Double.parseDouble(calculationTextView.getText().toString());
                 break;
             case "-":
-                result -= Double.valueOf(calculationTextView.getText().toString());
+                result -= Double.parseDouble(calculationTextView.getText().toString());
                 break;
             case "*":
-                result *= Double.valueOf(calculationTextView.getText().toString());
+                result *= Double.parseDouble(calculationTextView.getText().toString());
                 break;
             case "/":
                 try {
-                    result /= Double.valueOf(calculationTextView.getText().toString());
+                    result /= Double.parseDouble(calculationTextView.getText().toString());
                 } catch (ArithmeticException e) {
                     calculationTextView.setText("На нуль делить нельзя");
                 }
@@ -203,13 +203,13 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void onChangePlusOrMinus(View view) {
-        double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         count = count * (-1);
         calculationTextView.setText(String.valueOf(count));
     }
 
     public void onPercent(View view) {
-        double count = Double.valueOf(calculationTextView.getText().toString());
+        double count = Double.parseDouble(calculationTextView.getText().toString());
         count = count / 100;
         calculationTextView.setText(String.valueOf(count));
     }
