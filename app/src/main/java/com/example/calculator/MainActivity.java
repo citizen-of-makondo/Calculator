@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -216,5 +217,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         double count = Double.parseDouble(calculationTextView.getText().toString());
         count = count / 100;
         calculationTextView.setText(String.valueOf(count));
+    }
+
+    public void onOpenSettingsActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingActivity.class);
     }
 }
