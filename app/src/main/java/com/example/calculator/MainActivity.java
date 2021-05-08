@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
@@ -36,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private Double result = 0.0;
     private String lastOperation;
 
-    private final static String calculationText = "text";
-    private final static String bufferText = "text";
+    private final static String calculationText = "calculationText";
+    private final static String bufferText = "bufferText";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +47,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable(calculationText, calculationTextView.toString());
-        outState.putSerializable(bufferText, bufferTextView.toString());
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(calculationText, calculationTextView.getText().toString());
+        savedInstanceState.putString(bufferText, bufferTextView.getText().toString());
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
+        calculationTextView.setText(savedInstanceState.getString(calculationText));
+        bufferTextView.setText(savedInstanceState.getString(bufferText));
     }
 
     private void initViews() {
