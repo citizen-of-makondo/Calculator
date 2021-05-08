@@ -37,230 +37,214 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:columnCount="3">
 
-            <GridLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_clear"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:columnCount="3">
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="clearAll"
+                android:text="@string/clear"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_clear"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="clearAll"
-                    android:text="@string/clear"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_one"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="onDeleteOneCount"
+                android:text="@string/delete_one"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/delete_one"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="onDeleteOneCount"
-                    android:text="@string/delete_one"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plus_minus"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onChangePlusOrMinus"
+                android:text="@string/plus_minus"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/plus_minus"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onChangePlusOrMinus"
-                    android:text="@string/plus_minus"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_divide"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onDivideClick"
+                android:text="@string/divide"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_divide"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onDivideClick"
-                    android:text="@string/divide"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_plus"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onPlusClick"
+                android:text="@string/plus"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_plus"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onPlusClick"
-                    android:text="@string/plus"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_multiplication"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onMiltiClick"
+                android:text="@string/multiplication"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_multiplication"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onMiltiClick"
-                    android:text="@string/multiplication"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_minus"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onMinusClick"
+                android:text="@string/minus"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_minus"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onMinusClick"
-                    android:text="@string/minus"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_percent"
+                style="@style/button_action_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onPercent"
+                android:text="@string/percent"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_percent"
-                    style="@style/button_action_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onPercent"
-                    android:text="@string/percent"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_result"
+                style="@style/button_action_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:onClick="showResult"
+                android:text="@string/result"
+                android:textSize="@dimen/button_text" />
+        </GridLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_result"
-                    style="@style/button_action_style"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="fill"
-                    android:onClick="showResult"
-                    android:text="@string/result"
-                    android:textSize="@dimen/button_text" />
-            </GridLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:columnCount="3">
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:columnCount="3">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                style="@style/button_count_style"
+                android:onClick="action_button"
+                android:text="@string/_1"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    style="@style/button_count_style"
-                    android:onClick="action_button"
-                    android:text="@string/_1"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_2"
+                style="@style/button_count_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_2"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_2"
-                    style="@style/button_count_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_2"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="action_button"
+                style="@style/button_count_style"
+                android:text="@string/_3"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="action_button"
-                    style="@style/button_count_style"
-                    android:text="@string/_3"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/button_count_style"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_4"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/button_count_style"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_4"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_5"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_5"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_6"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_6"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_7"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_7"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_8"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_8"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_9"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_9"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_0"
+                style="@style/button_count_style"
+                android:textSize="@dimen/button_text" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_0"
-                    style="@style/button_count_style"
-                    android:textSize="@dimen/button_text" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
+                android:onClick="action_button"
+                android:text="@string/_point"
+                style="@style/button_action_style"
+                android:textSize="@dimen/button_text" />
+        </GridLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_point"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_button_end_vert_orientation"
-                    android:onClick="action_button"
-                    android:text="@string/_point"
-                    style="@style/button_action_style"
-                    android:textSize="@dimen/button_text" />
-            </GridLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
 </LinearLayout>
